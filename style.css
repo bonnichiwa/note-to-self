@@ -1,0 +1,130 @@
+body {
+	border: 10px solid black;
+	padding: 1px;
+	margin: 0;
+	min-height: 100vh;
+	background-color: #ececec;
+}
+h1 {
+	font-family: 'Zeyada', cursive;
+	font-size: 30px;
+	font-weight: 100;
+	margin: 0;
+}
+h2 {
+	font-family: 'Zeyada', cursive;
+	font-size: 30px;
+	font-weight: 100;
+	margin-top: 120px;
+}
+p {
+	font-family: 'Cutive Mono', monospace;
+	font-weight: 100;
+	line-height: 25px;
+}
+.notes {
+	padding: 50px 100px;
+	border: 10px solid black;
+	min-height: calc(100vh - 22px);
+}
+#cover-note {
+	text-align: center;
+	width: 300px;
+	margin: 0 auto;
+	cursor: pointer;
+	margin-top: 100px;
+}
+#note-2, #note-3, #note-4 {
+	display: none;
+	padding: 100px;
+}
+#note-5, #note-6 {
+	display: none;
+}
+#note-2 {
+	flex-wrap: wrap;
+}
+#note-2 .note-outer {
+	width: 295px;
+	margin: 10px;
+}
+#note-3 .note-outer, #note-4 .note-outer, #note-5 .note-outer, #note-6 .note-outer {
+	max-width: 570px;
+	margin: 0 auto;
+}
+#note-2 .note-inner, #note-3 .note-inner, #note-4 .note-inner {
+	min-height: 290px;
+	padding: 10px;
+	max-height: 570px;
+}
+#note-5 .note-outer, #note-6 .note-outer {
+	width: 400px;
+}
+.note-img {
+	width: 100%;
+	display: none;
+}
+.cover-note-outer {
+	border: 1px solid black;
+	padding: 5px;
+	margin-bottom: 10px;
+	min-height: 320px;
+}
+.cover-note-inner {
+	border: 1px dashed black;
+	min-height: 250px;
+}
+.note-outer {
+	border: 1px solid black;
+	padding: 5px;
+	margin-bottom: 10px;
+}
+.note-inner {
+	border: 1px dashed black;
+}
+.cover-note-p {
+	margin-top: 100px;
+}
+.cover-note-outer h1 {
+	margin-top: 20px;
+}
+#read-on-2, #read-on-3, #read-on-4 {
+	font-family: 'Zeyada', cursive;
+	font-size: 30px;
+	text-align: center;
+	cursor: pointer;
+	padding-top: 5px;
+	margin-top: 5px;
+}
+#read-on-2 {
+	background-color: black;
+	color: white;
+	height: 318px;
+	width: 308px;
+	margin: 10px;
+}
+#read-on-3 {
+	text-align: center;
+}
+.note-title {
+	background-color: #000000;
+	color: #ffffff;
+	width: 280px;
+}
+.flip-container {
+	display: inline-flex;
+	width: 100%;
+	margin-top: 20px;
+}
+.flip {
+	width: 50%;
+	text-align: center;
+}
+#flip-left, #flip-right {
+	width: 50px;
+    height: 40px;
+    border: 1px solid black;
+    text-align: center;
+	padding-top: 15px;
+	margin: 0 auto;
+}
