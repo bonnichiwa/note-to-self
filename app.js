@@ -95,7 +95,6 @@ App.prototype.onKeyDown = function(e) {
 				this.htmlElement.flipLeft.classList.add('pressed');
 			}
 			document.querySelector(`img[data-key="${counter}"]`).style.display = "block";
-			console.log(counter);
 		} else if (counter === 24) {
 			document.querySelector('div[data-key="25"]').style.display = "block";
 			document.querySelector('img[data-key="24"]').addEventListener('mouseover', () => this.showFinalImg());
@@ -108,7 +107,6 @@ App.prototype.showFinalImg = function() {
 	if (el.classList.contains('is-paused')) {
 		el.classList.remove('is-paused');
 	}
-	console.log('on final image');
 	this.htmlElement.note5.style.display = "none";
 	this.htmlElement.note6.style.display = "block";
 	document.querySelector('img[data-key="final"]').style.display = "block";
