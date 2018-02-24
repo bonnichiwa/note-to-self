@@ -9,6 +9,7 @@ var App = function() {
 		readOn2: document.getElementById('read-on-2'),
 		readOn3: document.getElementById('read-on-3'),
 		readOn4: document.getElementById('read-on-4'),
+		flipContainer: document.getElementById('flip-container'),
 		flipLeft: document.getElementById('flip-left'),
 		flipRight: document.getElementById('flip-right'),
 		images: document.getElementsByClassName('note-img'),
@@ -87,22 +88,27 @@ App.prototype.onKeyDown = function(e) {
 			Array.from(this.htmlElement.images).forEach((img) => img.style.display = "none");
 			if (e.keyCode == 39) {
 				if (counter >= 0) counter++;
-				this.htmlElement.flipRight.style.color = "white";
-				this.htmlElement.flipRight.style.background = "black";
+				this.htmlElement.flipRight.classList.add('pressed');
 			}
 			if (e.keyCode == 37) {
 				if (counter > 0) counter--;
-				this.htmlElement.flipLeft.style.color = "white";
-				this.htmlElement.flipLeft.style.background = "black";
+				this.htmlElement.flipLeft.classList.add('pressed');
 			}
 			document.querySelector(`img[data-key="${counter}"]`).style.display = "block";
+			console.log(counter);
 		} else if (counter === 24) {
-			this.showFinalImg();
+			document.querySelector('div[data-key="25"]').style.display = "block";
+			document.querySelector('img[data-key="24"]').addEventListener('mouseover', () => this.showFinalImg());
 		}
 	}
 }
 
 App.prototype.showFinalImg = function() {
+	var el = document.querySelector('.js-fade');
+	if (el.classList.contains('is-paused')) {
+		el.classList.remove('is-paused');
+	}
+	console.log('on final image');
 	this.htmlElement.note5.style.display = "none";
 	this.htmlElement.note6.style.display = "block";
 	document.querySelector('img[data-key="final"]').style.display = "block";
@@ -115,17 +121,17 @@ App.prototype.observers = function() {
 		this.htmlElement.coverNote.addEventListener('click', () => this.showNote4());		
 	}
 
-	// if (this.htmlElement.note2) {
-	// 	this.htmlElement.readOn2.addEventListener('mouseenter', () => this.mouseEnterNote2());	
-	// 	this.htmlElement.readOn2.addEventListener('mouseleave', () => this.mouseLeaveNote2());	
-	// 	this.htmlElement.readOn2.addEventListener('click', () => this.showNote3());
-	// }
+	if (this.htmlElement.note2) {
+		this.htmlElement.readOn2.addEventListener('mouseenter', () => this.mouseEnterNote2());	
+		this.htmlElement.readOn2.addEventListener('mouseleave', () => this.mouseLeaveNote2());	
+		this.htmlElement.readOn2.addEventListener('click', () => this.showNote3());
+	}
 
-	// if (this.htmlElement.note3) {
-	// 	this.htmlElement.readOn3.addEventListener('mouseenter', () => this.mouseEnterNote3());	
-	// 	this.htmlElement.readOn3.addEventListener('mouseleave', () => this.mouseLeaveNote3());
-	// 	this.htmlElement.readOn3.addEventListener('click', () => this.showNote4());	
-	// }
+	if (this.htmlElement.note3) {
+		this.htmlElement.readOn3.addEventListener('mouseenter', () => this.mouseEnterNote3());	
+		this.htmlElement.readOn3.addEventListener('mouseleave', () => this.mouseLeaveNote3());
+		this.htmlElement.readOn3.addEventListener('click', () => this.showNote4());	
+	}
 
 	if (this.htmlElement.note4) {
 		this.htmlElement.readOn4.addEventListener('mouseenter', () => this.mouseEnterNote4());

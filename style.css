@@ -64,6 +64,9 @@ p {
 	width: 100%;
 	display: none;
 }
+.note-img [data-key="24"] {
+	cursor: pointer;
+}
 .cover-note-outer {
 	border: 1px solid black;
 	padding: 5px;
@@ -111,10 +114,10 @@ p {
 	color: #ffffff;
 	width: 280px;
 }
-.flip-container {
+#flip-container {
 	display: inline-flex;
 	width: 100%;
-	margin-top: 20px;
+	margin-top: -15px;
 }
 .flip {
 	width: 50%;
@@ -123,8 +126,43 @@ p {
 #flip-left, #flip-right {
 	width: 50px;
     height: 40px;
-    border: 1px solid black;
+	border: 1px solid white;
+	background: black;
+	color: white;
     text-align: center;
 	padding-top: 15px;
 	margin: 0 auto;
+	transition: all 0.2s ease;
+}
+.reveal {
+	display: none;
+	border: 1px solid black;
+	color: white;
+	background: black;
+	text-align: center;
+	margin: 0 auto;
+	margin-top: -50px;
+	width: 300px;
+}
+.reveal:hover {
+	background: none;
+	color: black;
+	transition: 1s;
+}
+.final-note-p > .note-title {
+	margin: 0 auto;
+	text-align: center;
+	margin-top: 20px;
+}
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+.fade-in {
+  opacity: 0;
+  animation: fadeIn .5s ease-in 1 forwards;
+}
+.is-paused {
+  animation-play-state: paused;
 }
